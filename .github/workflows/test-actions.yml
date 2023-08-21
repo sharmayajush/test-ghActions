@@ -1,0 +1,17 @@
+name: learn-github-actions
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v3
+        - uses: actions/setup-go@v4
+          with:
+            go-version: 'stable'
+        - name: accuknox-install
+          uses: accuknox/install-action@v0.1.0
+        - name: accuknox-report
+          uses: accuknox/report-action@v0.1.0
+      
+        
