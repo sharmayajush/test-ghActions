@@ -6,12 +6,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
         - uses: actions/checkout@v3
+
         - uses: actions/setup-go@v4
           with:
             go-version: 'stable'
+        
         - name: accuknox-install
+          id: install-accuknox
           uses: accuknox/install-action@v0.1.0
-        - name: accuknox-report
+
+        - name: Run accuknox-report
+          id: report-accuknox
+          if: steps.install-accuknox.outputs.status == 'success'
           uses: accuknox/report-action@v0.1.0
+  
       
         
