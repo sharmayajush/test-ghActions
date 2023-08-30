@@ -14,6 +14,23 @@ jobs:
         - name: accuknox-install
           id: install-accuknox
           uses: accuknox/install-action@v0.1.1
+        
+        - name: Checkout repo
+          uses: actions/checkout@v3
+          with:
+            submodules: true
+            
+        - name: Checkout kubearmor repo
+          uses: actions/checkout@v3
+          with:
+            repository: kubearmor/KubeArmor
+            ref: main
+            path: Kubearmor
+  
+        - name: Setup a Kubernetes environment
+          run: |
+            ./Kubearmor/contribution/k3s/install_k3s.sh
+             sudo apt install socat
 
         - name: Run accuknox-report
           id: report-accuknox
