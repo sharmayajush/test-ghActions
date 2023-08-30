@@ -13,12 +13,12 @@ jobs:
         
         - name: accuknox-install
           id: install-accuknox
-          uses: accuknox/install-action@v0.1.0
+          uses: accuknox/install-action@v0.1.1
 
         - name: Run accuknox-report
           id: report-accuknox
           if: steps.install-accuknox.outputs.status == 'success'
-          uses: accuknox/report-action@v0.1.0
+          uses: accuknox/report-action@v0.1.2
   
       
         
