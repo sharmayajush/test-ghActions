@@ -11,10 +11,7 @@ jobs:
           with:
             go-version: 'stable'
         
-        - name: accuknox-install
-          id: install-accuknox
-          uses: accuknox/install-action@v0.1.1
-        
+       
         - name: Checkout repo
           uses: actions/checkout@v3
           with:
@@ -31,6 +28,11 @@ jobs:
           run: |
             ./Kubearmor/contribution/k3s/install_k3s.sh
              sudo apt install socat
+        
+        - name: accuknox-install
+          id: install-accuknox
+          uses: accuknox/install-action@v0.1.1
+           
 
         - name: Run accuknox-report
           id: report-accuknox
